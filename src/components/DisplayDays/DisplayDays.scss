@@ -1,0 +1,68 @@
+@use '../../variables' as var;
+
+.forecast-container {
+    .title {
+        font-size: 1.325rem;
+    }
+
+    .accordion {
+        --bs-accordion-bg: #010714;
+        --bs-accordion-color: #fff;
+        --bs-accordion-btn-color: #fff;
+        --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        --bs-accordion-btn-focus-box-shadow: 0 1px 0 #5a5e67;
+        --bs-accordion-btn-focus-border-color: transparent;
+        --bs-accordion-active-color: #fff;
+        --bs-accordion-active-bg: #343945;
+        --bs-accordion-border-color: #5a5e67;
+
+        .data-display {
+
+            .accordion-header {
+                .accordion-button {
+                    font-weight: 500;
+                    font-size: var.$font-14;
+                    padding-left: 0.25rem !important;
+                    padding-right: 0.75rem !important;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    &::after {
+                        width: 1rem;
+                        height: 1rem;
+                        background-size: 1rem;
+                    }
+                }
+        
+                .icon {
+                    font-family: "Bootstrap-Icons";
+                    font-size: 1.4rem;
+                }
+        
+                .conditions {
+                    font-size: var.$font-14;
+                }
+            }
+        
+            .accordion-body {
+                background-color: #131926;
+        
+                .row {
+                    padding: 0.325rem 0;
+                    border-bottom: 1px solid #3b414b;
+        
+                    &:last-of-type {
+                        border-bottom: none;
+                    }
+
+                    .icon img {
+                        max-width: 25px;
+                    }
+                }
+            }
+        }
+    }
+}
