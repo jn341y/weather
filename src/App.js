@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Search from "./components/Search/Search";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
+import DisplayDays from "./components/DisplayDays/DisplayDays";
+import searchImage from "./images/weather-search.png";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = () => {
+    const [weatherData, setWeatherData] = useState({});
+    const [weatherClass, setWeatherClass] = useState("day");
+
+    const getWeather = (weatherData) => {
+        setWeatherData(weatherData);
+    }
+
+    return (
+        <main className={`d-flex justify-content-center ${weatherClass && weatherClass}`}>
+            <div className="main-container">
+                <Search weather={weatherData} getWeather={getWeather} />
+                {Object.keys(weatherData).length > 0 
+                    ? (
+                        <>
+                            <CurrentWeather weather={weatherData} mainClass={setWeatherClass} />
+                            <DisplayDays dayWeather={weatherData.weatherData} />
+                        </>
+                        )
+                    : (
+                        <div className="py-5 m-2 no-search">
+                            <div className="text-center"><h2>Search for a city</h2></div>
+                            <div className="my-5 text-center"><img src={searchImage} alt="weather search" width={150} /></div>
+                        </div>
+                        )
+                }
+            </div>
+        </main>
+    );
 }
 
 export default App;

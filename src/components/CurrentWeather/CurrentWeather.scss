@@ -1,0 +1,84 @@
+@use '../../variables' as var;
+
+.night {
+    &.thunderstorm .current-weather {
+        .cw-datapoints {
+            background-color: rgba(var.$main-bg-color, 0.4);
+        }
+    }
+}
+
+.current-weather {
+    border-radius: 1.5rem;
+    background-color: rgba(var.$main-bg-color, 0.3);
+    text-shadow: var.$cw-text-shadow;
+ 
+    .cw-display {
+        font-size: var(--bs-body-font-size);
+
+        .condition {
+            font-size: var.$font-14;
+            font-weight: 600;
+            line-height: var(--bs-body-font-size);
+        }
+    }
+    
+    .city h2 {
+        font-weight: 700;
+    }
+
+    .date {
+        font-size: var.$font-18;
+        font-weight: 600;
+    }
+
+    .temperature {
+        font-size: 3rem;
+        font-weight: 600;
+        line-height: 2.5rem;
+
+        .deg {
+            font-size: 1.5rem;
+            line-height: 1.2rem;
+        }
+    }
+
+    .desc {
+        font-size: var.$font-14;
+        line-height: var(--bs-body-font-size);
+    }
+
+    .cw-datapoints {
+        background-color: rgba(var.$main-bg-color, 0.3);
+        border-radius: 0 0 1.25rem 1.25rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.3);
+    
+        .icon img {
+            max-width: 25px;
+        }
+    
+        .datapoint {
+            font-size: var.$font-12;
+        }
+        
+        & .d-flex .data {
+            font-weight: 600;
+            border-right: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        & .d-flex .data:last-of-type {
+            border-right: none;
+        }
+
+    }
+}
+
+@media (max-width: 460px) {
+    .current-weather {
+        .cw-datapoints {
+            & .d-flex .data:nth-child(3) {
+                border-right: none;
+            }
+        }
+    }
+}
